@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title> new document </title>
+  <meta name="generator" content="editplus" />
+  <meta name="author" content="" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+ </head>
+
+ <body>
+	<input type="text" name="" id="txt" value="请输入文本"/>
+	<button>按钮</button>
+
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$(function(){
+			var flag=true;
+			var $txt=$('#txt');
+			$txt.click(function(){
+				if(flag){
+					$(this).select();
+					flag=false;
+				}
+				else{
+					//取消文本选中测试
+					//$(this).select()=false;	不行
+					$(this).unbind();		//可以取消全选，再次双击，全选
+					//document.getSelection().empty(); $(this).blur();	//可以取消全选，但是无法输入。					
+					//window.getSelection().removeAllRanges();	//可以取消全选，但无法输入
+					flag=true;
+				}
+			});
+		});
+	</script>
+ </body>
+</html>

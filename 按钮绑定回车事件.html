@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 200px auto;
+            text-align: center;
+        }
+
+        .ne-sub {
+            margin: 40% auto;
+            display: flex;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div dv="testDV">
+        <input type="button" value="登录" class="ne-sub">
+    </div>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+
+        $('.ne-sub').click(function () {
+            alert("按钮回车事件");
+        });
+
+        $(document).keydown(function (event) {
+            if (event.keyCode == "13") { //keyCode=13是回车键
+                $('.ne-sub').click();
+            }
+        });
+
+    }
+</script>

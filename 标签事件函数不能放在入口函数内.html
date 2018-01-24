@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		span{cursor:pointer;display:inline-block;width:350px;height:40px;border:1px solid #000;text-align:center;}
+	</style>
+</head>
+<body>
+	<span onclick='winalt()'>点击</span>
+	<script type="text/javascript">
+//			function winalt(){
+//				alert(1);
+//			}
+
+		window.onload=function(){
+			function winalt(){		//标签事件绑定的函数定义放在入口函数内会报not defined错；概因，事件是作为标签属性存在的，文档加载时，与标签是一同加载的。所以，尽量不要用标签内事件来定义函数。
+				alert(1);
+			}
+		};
+	</script>
+</body>
+</html>

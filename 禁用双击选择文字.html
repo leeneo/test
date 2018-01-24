@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title> new document </title>
+  <meta name="generator" content="editplus" />
+  <meta name="author" content="" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <style type="text/css">
+	input{
+		-ms-user-select:none;
+		-moz-user-select:none;
+		-webkit-user-select:none;
+		user-select:none;	//这个好像对value值不起作用
+	}
+	div{
+		width:200px;
+		height:100px;
+		border:1px solid #000;
+	}
+  </style>
+ </head>
+
+ <body>
+	<input type="text" name="" id="" value="请输入文本" onselectstart='return false;' />	//onselectstart 对value 值不起作用
+	<div class="sec" onselectstart='return false;' >	//c3样式或者事件都生效
+		测试文本测试文本测试文本测试文本测试文本测试文本
+	</div>
+ </body>
+</html>

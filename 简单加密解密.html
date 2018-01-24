@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        h2 {
+            text-align: center
+        }
+
+        button {
+            /* margin-left: 2%; */
+        }
+
+        input[text] {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>简单加密解密</h2>
+    <div>
+        <p>加密：
+            <input type="text" id="encode" value="123">
+            <label for="twoEn">2</label><input type="radio" name="rdEn" id="twoEn" value="2">
+            <label for="tenEn">10</label><input type="radio" name="rdEn" id="tenEn" value="10">
+            <label for="sixteenEn">16</label><input type="radio" name="rdEn" id="sixteenEn" value="16">
+            <button class="btnEn">转换</button>
+        </p>
+        <p>结果：
+            <input type="text" id="inpEn">
+        </p>
+        <p>解密：
+            <input type="text" id="decode">
+            <label for="twoDe">2</label><input type="radio" name="rdDe" id="twoDe" value="2">
+            <label for="tenDe">10</label><input type="radio" name="rdDe" id="tenDe" value="10">
+            <label for="sixteenDe">16</label><input type="radio" name="rdDe" id="sixteenDe" value="16"> 
+            <button class="btnDe">转换</button>
+        </p>
+        <p>结果：
+            <input type="text" id="inpDe">
+        </p>
+    </div>
+    
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        function en(code, h) {
+            //简单的jS加密解密<br>//code为对应的字符串，h为（2，8，10，16）就是要转成的几进制
+            //h 如果不设置或者undefined，则默认为十进制输出
+            var monyer = new Array();
+            var i;
+            for (i = 0; i < code.length; i++)
+                monyer += code.charCodeAt(i).toString(h) + "_"; //就是把字符串转成ascll码，然后再转成你想的几进制
+            return monyer;
+        };
+
+        function de(code, h) {
+            var i, s = "",
+                code = code.split("_");
+            for (i = 0; i < code.length; i++) {
+                s += String.fromCharCode(parseInt(code[i], h));
+            };
+            return s
+        };
+        var a = en("哇哈哈", 8) //=> "52307_52310_52310_"
+        var b = de("52307_52310_52310_", 8) //=> "哇哈哈"
+        console.log(a);
+    
+        $(function(){
+            $('.btnEn').click(function(){
+                $eCode=$('#encode').val();
+                $eH=$('input:radio[name="rdEn"]:checked').val();
+                $ecd=en($eCode,$eH);
+                $('#inpEn').val($ecd);
+            })
+            $('.btnDe').click(function(){
+                $dCode=$('#decode').val();
+                $dH=$('input:radio[name="rdDe"]:checked').val();
+                $dcd=de($dCode,$dH);
+                $('#inpDe').val($dcd);
+            })
+        })
+    </script>
+
+</body>
+
+</html>

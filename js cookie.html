@@ -1,0 +1,23 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //cookie 用于记录客户端的用户信息
+        //基本设置，key=value;
+        document.cookie="username=John";
+        //添加过期时间的cookie设置，path告诉浏览器cookie路径，默认当前页面
+        //document.cookie="username=John;expires=Thu, 18 Dec 2019 12:00:00 GMT;path=/;";
+        //获取当前页面所有cookies
+        var cok=document.cookie;
+        console.log(cok);
+    </script>
+</body>
+
+</html>

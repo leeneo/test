@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            list-style: none;
+        }
+
+        ul {
+            margin: 1rem auto;
+            padding-left: 1rem;
+        }
+
+        ul li span {
+            float: right;
+            width: 66vw;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="dateWrap">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="dateWrap2">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="dateWrap3">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $lis = $('.dateWrap li');
+            $lis.eq(0).html("Date.toDateString() : <span>" + new Date().toDateString() + "</span>");
+            $lis.eq(1).html("Date.toLocaleDateString() : <span>" + new Date().toLocaleDateString() + "</span>");
+            $lis.eq(2).html("Date.toLocaleString() : <span>" + new Date().toLocaleString() + "</span>");
+            $lis.eq(3).html("Date.toLocaleTimeString() : <span>" + new Date().toLocaleTimeString() + "</span>");
+            $lis.eq(4).html("Date.toString() : <span>" + new Date().toString() + "</span>");
+            $lis.eq(5).html("Date.toUTCString() : <span>" + new Date().toUTCString() + "</span>");
+            $lis.eq(6).html("Date.toISOString() : <span>" + new Date().toISOString() + "</span>");
+            $lis.eq(7).html("Date.toTimeString() : <span>" + new Date().toTimeString() + "</span>");
+            $lis.eq(8).html("Date.toJSON() : <span>" + new Date().toJSON() + "</span>");
+        })
+
+        $(function () {
+            $lis = $('.dateWrap2 li');
+            $lis.eq(0).html("Date.getDate() : <span>" + new Date().getDate()) + "</span>";
+            $lis.eq(1).html("Date.getDay() : <span>" + new Date().getDay()) + "</span>";
+            $lis.eq(2).html("Date.getFullYear() : <span>" + new Date().getFullYear()) + "</span>";
+            $lis.eq(3).html("Date.getHours() : <span>" + new Date().getHours()) + "</span>";
+            $lis.eq(4).html("Date.getMilliseconds() : <span>" + new Date().getMilliseconds()) + "</span>";
+            $lis.eq(5).html("Date.getMinutes() : <span>" + new Date().getMinutes()) + "</span>";
+            $lis.eq(6).html("Date.getSeconds() : <span>" + new Date().getSeconds()) + "</span>";
+            $lis.eq(7).html("Date.getMonth() : <span>" + new Date().getMonth()) + "</span>";
+            $lis.eq(8).html("Date.getTime() : <span>" + new Date().getTime()) + "</span>";
+            $lis.eq(9).html("Date.getTimezoneOffset() : <span>" + new Date().getTimezoneOffset()) + "</span>";
+        });
+
+        $(function () {
+            $lis = $('.dateWrap3 li');
+            $lis.eq(0).html("Date.getUTCDate() : <span>" + new Date().getUTCDate() + "</span>");
+            $lis.eq(1).html("Date.getUTCDay() : <span>" + new Date().getUTCDay() + "</span>");
+            $lis.eq(2).html("Date.getUTCFullYear() : <span>" + new Date().getUTCFullYear() + "</span>");
+            $lis.eq(3).html("Date.getUTCHours() : <span>" + new Date().getUTCHours() + "</span>");
+            $lis.eq(4).html("Date.getUTCMilliseconds() : <span>" + new Date().getUTCMilliseconds() + "</span>");
+            $lis.eq(5).html("Date.getUTCMinutes() : <span>" + new Date().getUTCMinutes() + "</span>");
+            $lis.eq(6).html("Date.getUTCMonth() : <span>" + new Date().getUTCMonth() + "</span>");
+            $lis.eq(7).html("Date.getUTCSeconds() : <span>" + new Date().getUTCSeconds() + "</span>");
+        });
+    </script>
+</body>
+
+</html>

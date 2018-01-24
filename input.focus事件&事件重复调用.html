@@ -1,0 +1,34 @@
+<html>
+<head>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("input").focus(function(){
+    $("input").css("background-color","#FFFFCC");
+  });
+  $("input").blur(function(){
+    $("input").css("background-color","#D6D6FF");
+  });
+  $('input').click(function(){
+	alert('input 被点击了');
+  });
+  $("#btn1").click(function(){
+    $("input").focus();
+  });  
+  $("#btn2").click(function(){
+    $("input").blur();
+  }); 
+  $('#btn3').click(function(){
+	$('input').click();
+  });
+});
+</script>
+</head>
+<body>
+Enter your name: <input type="text" />
+<p>请在上面的输入域中点击，使其获得焦点，然后在输入域外面点击，使其失去焦点。</p>
+<p><button id="btn1">触发输入域的 focus 事件</button></p>
+<p><button id="btn2">触发输入域的 blur 事件</button></p>
+<p><button id="btn3">调用其他元素的click事件</button></p>
+</body>
+</html>

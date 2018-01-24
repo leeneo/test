@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //日期往后推，加法运算
+            function dayForward(startDate, num) {
+
+                var dayTime = 1 * 24 * 60 * 60 * 1000; //一天的毫秒数
+                //console.log("一天的毫秒数：" + dayTime);
+                // var oneday = new Date(dayTime);
+                // console.log(oneday.toLocaleDateString());    //为什么是1970/1/2
+                var fd = new Date(startDate);
+                var resDay = new Date(fd.getTime() + dayTime * num).toLocaleDateString();
+                //console.log(resDay);
+                return resDay;
+            }
+            //日期往前推，减法运算
+            function dayBackward(startDate, num) {
+
+                var dayTime = 1 * 24 * 60 * 60 * 1000; //一天的毫秒数
+                //console.log("一天的毫秒数：" + dayTime);
+                // var oneday = new Date(dayTime);
+                // console.log(oneday.toLocaleDateString());    //为什么是1970/1/2
+                var fd = new Date(startDate);
+                var resDay = new Date(fd.getTime() - dayTime * num).toLocaleDateString();
+                //console.log(resDay);
+                return resDay;
+            }
+            //dayForward('2017-12-31', 32);
+            var x=dayBackward('2017-12-31', 32);
+            console.log("123:"+x);
+        })
+    </script>
+</body>
+
+</html>

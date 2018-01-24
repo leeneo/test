@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    // !!强制转换为boolean
+        var a;
+        var b=!!a;
+        console.log("b: "+b);
+        a='c';
+        b=!!a;
+        console.log("b: "+b);
+        
+    // 强制转换为number
+        var num="1234";
+        console.log(typeof(num));   //string
+        num=+"1234";//或者num=+num||num=-num;;
+        console.log(typeof(num));   //number
+        num="1234"-0;
+        console.log(typeof(num));   //number
+    </script>
+</body>
+
+</html>
