@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div value="dv123">div</div>
+    <h2 value="h123">h2</h2>
+    <span value="span123">span</span>
+    <a href="###" value="a123">link</a>
+    <p value="p123">ppp</p>
+    <button value="button123">button</button>
+    <input type="text" value="textbox123">
+    <input type="radio" name="" id="" value="radio123">
+    <input type="checkbox" name="" id="" value="check123">
+
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $dv=$('div');
+            console.log("div.text():"+$dv.text()+";div.val():"+$dv.val());  //val取不到值
+
+            $ht=$('h2');
+            console.log("h.text():"+$ht.text()+";h.val():"+$ht.val());  //val取不到值
+
+            $spn=$('span');
+            console.log("span.text():"+$spn.text()+";span.val():"+$spn.val());  //val取不到值
+            
+            $link=$('a');
+            console.log("a.text():"+$link.text()+";a.val():"+$link.val());  //val取不到值
+
+            $p=$('p');
+            console.log("p.text():"+$p.text()+";p.val():"+$p.val());  //val取不到值
+
+            $btn=$('button');
+            console.log("button.text():"+$btn.text()+";button.val():"+$btn.val());  //val取不到值
+
+            $txtInp=$('input:text');
+            console.log("input[text].text():"+$txtInp.text()+";input[text].val():"+$txtInp.val());
+            
+            $radInp=$('input:radio');
+            console.log("div.text():"+$radInp.text()+";div.val():"+$radInp.val());  //val取不到值
+
+            $chbInp=$('input:checkbox');
+            console.log("div.text():"+$chbInp.text()+";div.val():"+$chbInp.val());  //val取不到值
+            
+        })
+    </script>
+</body>
+
+</html>

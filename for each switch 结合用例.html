@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> new document </title>
+<meta name="generator" content="editplus" />
+<meta name="author" content="" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="./css/amazeui.min.css" rel="stylesheet">
+<style type="text/css">
+*{margin:0;padding:0;list-style:none;text-decoration:none;
+}
+body{    
+font-weight: normal;
+line-height: 1.6;
+color: #333333;
+font-size: 1.6rem;
+}
+
+a{
+color:#0e90d2;
+}
+.cards_bank {
+padding: 20px 12px 12px;
+margin-bottom: 0px;
+}
+
+.cards_bank li {
+box-shadow: 0px 0px 20px 1px rgba(0,0,0,.9);
+border-top: 1px solid rgba(255,255,255,.4);
+height: 110px;
+border-radius: 5px;
+/*background: #7b1eb3;*/
+overflow: hidden;
+position: relative;
+padding: 10px;
+margin-bottom:-6px;
+}
+
+/*.cards_bank li:last-child {
+background: #591eb3;
+}*/
+
+.cards_bank li span {
+float: left;
+width: 40px;
+height: 40px;
+line-height: 40px;
+}
+
+.cards_bank li span.am-icon-btn.am-warning {
+background: rgba(255,255,255,0.3);
+}
+
+.cards_bank li h3 {
+margin: 0px;
+float: left;
+height: 40px;
+line-height: 40px;
+padding-left: 10px;
+color: rgba(255,255,255,0.8);
+}
+
+.cards_bank li a {
+clear: both;
+margin: 0px;
+margin-top: 5px;
+font-family: 'Microsoft YaHei';
+color: #fff;
+display: block;
+height: 100%;
+}
+.cards_bank li a:nth-child(3) div:first-child {
+margin: 0 2%;
+float: left;
+width: 20%;
+height: 80%;
+background: url(./images/vip-gold.png) center no-repeat;
+background-size: contain;
+}
+
+.cards_bank li a:nth-child(3) div:nth-child(2) {
+width: 70%;
+float: left;
+margin-top: 12px;
+color: white;
+text-align: left;
+}
+
+.cards_bank li a:nth-child(3) div:last-of-type {
+float: left;
+color: white;
+text-align: left;
+}
+
+.cards_bank li a.cardsoff {
+height: 30px;
+position: absolute;
+right: 8px;
+bottom: 2px;
+font-size: 1.4rem;
+color: #efefef;
+z-index: 5;
+padding: 2px 0px;
+}
+
+.cards_bank li a.aQrcode {
+height: 20px;
+position: absolute;
+right: 8px;
+top: -4px;
+z-index: 5;
+color: #efefef;
+opacity: 1;
+font-size: 1.8rem
+}
+
+.cards_bank li a.cardsoff i {
+color: #fff;
+padding-left: 3px;
+color: #d5d3d3;
+}
+
+.cards_bank li a.cardsoff:hover {
+color: #fff;
+}
+
+.cards_bank li a.cardsoff:hover i {
+color: #fff;
+}
+
+.cards_bank li p {
+clear: both;
+text-align: right;
+margin: 0px;
+margin-top: 5px;
+font-size: 2rem;
+font-family: 'Microsoft YaHei';
+color: #fff;
+}
+
+.cards_bank li a.recharge {
+height: 20px;
+position: absolute;
+right: 80px;
+top: 0px;
+z-index: 5;
+font-size: 1.2rem;
+color: #d5d3d3;
+}
+
+.cards_bank li a.recharge i {
+color: #fff;
+padding-left: 3px;
+color: #d5d3d3;
+}
+.tiaojiacard i {
+    position: absolute;
+    font-size: 2.2rem;
+    left: 15px;
+    line-height: 40px;
+}
+.tiaojiacard p {
+    height: 40px;
+    line-height: 40px;
+    margin: 0px;
+    padding-left: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+.am-icon-plus{
+    display: inline-block;
+    font-style: normal;
+}
+</style>
+</head>
+
+<body>
+<div class="Bankcard">
+<ul class="cards_bank">
+<li style="background-color: rgb(123, 30, 179);">
+<a onclick="unbindCard(this);" class="cardsoff" data-value="18688710065">解绑<i class="am-icon-minus-square" style=" color: #d5d3d3; "></i></a>
+<a class="aQrcode" title="18688710065" onclick="showQRCode('18688710065')">
+<i class="am-icon-qrcode"></i>
+</a>
+<a href="/home/Index?s_print_no=18688710065">
+<div name="icon"></div>
+<div class="vip_grade">中级      </div>
+<div>18688710065</div>
+</a>
+</li>
+<li style="background-color: rgb(123, 30, 179);">
+<a onclick="unbindCard(this);" class="cardsoff" data-value="13510708435">解绑<i class="am-icon-minus-square" style=" color: #d5d3d3; "></i></a>
+<a class="aQrcode" title="13510708435" onclick="showQRCode('13510708435')">
+<i class="am-icon-qrcode"></i>
+</a>
+<a href="/home/Index?s_print_no=13510708435">
+<div name="icon"></div>
+<div class="vip_grade">中级      </div>
+<div>13510708435</div>
+</a>
+</li>
+<li style="background-color: rgb(89, 30, 179);">
+<a onclick="unbindCard(this);" class="cardsoff" data-value="18718779218">解绑<i class="am-icon-minus-square" style=" color: #d5d3d3; "></i></a>
+<a class="aQrcode" title="18718779218" onclick="showQRCode('18718779218')">
+<i class="am-icon-qrcode"></i>
+</a>
+<a href="/home/Index?s_print_no=18718779218">
+<div name="icon"></div>
+<div class="vip_grade">高级      </div>
+<div>18718779218</div>
+</a>
+</li>
+</ul>
+<div class="tiaojiacard block"><a href="/home/LockCard"><i class="am-icon-plus"></i><p>添加会员卡</p></a></div>
+</div>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="./js/linear.js"></script>
+<script type="text/javascript" src="./js/amazeui.min.js"></script>
+</body>
+</html>

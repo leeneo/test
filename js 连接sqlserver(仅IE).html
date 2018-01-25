@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--ActiveXObject对象为 Microsoft 扩展，仅在 IE 中受支持，在 Windows 8.x 应用商店应用中不受支持 -->
+    <!-- 前端不能用此方法，不安全，DB连接密钥暴露 -->
+    <!-- 本文编码格式需要保留为GBK，否则插入SQL中文乱码 -->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        function db() {
+            //用户名  
+            var username = "怀恩";
+            //活动编号  
+            var age = 38;
+            //手机号码  
+            var sex = "男";
+            var conn = new ActiveXObject("ADODB.connection");
+            var rs = new ActiveXObject("ADODB.recordset");
+            conn.open("PROVIDER=SQLOLEDB;DATA SOURCE=127.0.0.1;UID=neo;PWD=900106;DATABASE=TestDB");
+            var age = 38;
+            var sql = "insert into person (name,age,sex) values(+'" + username + "'," + age + ",'" + sex +"')";
+            rs.open(sql, conn);
+            rs.close();
+            conn.close();
+            rs = null;
+            conn = null;
+        }
+        db();
+    </script>
+</body>
+
+</html>

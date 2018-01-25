@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="c1"></div>
+    <div id="mountNode"></div>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/assets/g2/3.0.4-beta.2/g2.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/assets/data-set/0.8.3/data-set.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // G2 对数据源格式的要求，仅仅是 JSON 数组，数组的每个元素是一个标准 JSON 对象。
+
+            //柱图
+            const data = [{
+                    genre: 'Sports',
+                    sold: 275
+                },
+                {
+                    genre: 'Strategy',
+                    sold: 115
+                },
+                {
+                    genre: 'Action',
+                    sold: 120
+                },
+                {
+                    genre: 'Shooter',
+                    sold: 350
+                },
+                {
+                    genre: 'Other',
+                    sold: 150
+                }
+            ];
+
+            // Step 1: 创建 Chart 对象
+            const chart = new G2.Chart({
+                container: 'c1', // 指定图表容器 ID
+                width: 600, // 指定图表宽度
+                height: 300 // 指定图表高度
+            });
+
+            // Step 2: 载入数据源
+            chart.source(data);
+
+            // Step 3：创建图形语法，绘制柱状图，由 genre 和 sold 两个属性决定图形位置，genre 映射至 x 轴，sold 映射至 y 轴
+            chart.interval().position('genre*sold').color('genre')
+
+            // Step 4: 渲染图表
+            chart.render();
+
+            //饼图
+            const {
+                DataView
+            } = DataSet;
+            const dataCircle = [{
+                    item: '技师部',
+                    count: 40671.00
+                },
+                {
+                    item: '散客',
+                    count: 2856.00
+                },
+                {
+                    item: '客户部',
+                    count: 9156.00
+                },
+                {
+                    item: '其他',
+                    count: 559.00
+                },
+                {
+                    item: '损益',
+                    count: 59.00
+                }
+            ];
+
+            const chartCircle = new G2.Chart({
+                container: 'mountNode',
+                forceFit: true,
+                height: window.innerHeight,
+            });
+
+            const dv = new DataView();
+            dv.source(dataCircle).transform({
+                type: 'percent',
+                field: 'count',
+                dimension: 'item',
+                as: 'percent'
+            });
+            chartCircle.source(dv, {
+                percent: {
+                    formatter: val => {
+                        val = (val * 100) + '%';
+                        return val;
+                    }
+                }
+            });
+            chartCircle.coord('theta', {
+                radius: 0.75
+            });
+            chartCircle.tooltip({
+                showTitle: false,
+                itemTpl: '<li><span style="background-color:{color};" class="g2-tooltip-marker"></span>{name}: {value}</li>'
+            });
+            chartCircle.intervalStack()
+                .position('percent')
+                .color('item')
+                .label('percent', {
+                    formatter: (val, item) => {
+                        return item.point.item + ': ' + val;
+                    }
+                })
+                .tooltip('item*percent', (item, percent) => {
+                    percent = (percent * 100).toFixed(2) + '%';
+                    return {
+                        name: item,
+                        value: percent
+                    };
+                })
+                .style({
+                    lineWidth: 1,
+                    stroke: '#fff'
+                });
+
+            chartCircle.render();
+        })
+    </script>
+</body>
+
+</html>

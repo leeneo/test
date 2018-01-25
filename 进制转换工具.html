@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        .tbl {
+            border-collapse: collapse;
+        }
+
+        .tbl th,
+        .tbl td {
+            border: 1px solid #E6E6E6;
+            padding: 5px 8px;
+            word-break: normal;
+            text-align: left;
+        }
+
+        .tbl thead tr {
+            background: #F3F3F3;
+        }
+
+        .tbl tr:nth-child(2n) {
+            background: #F9F9F9;
+        }
+
+        .numInp {
+            box-sizing: border-box;
+            height: 28px;
+            float: left;
+            border: 1px solid #999;
+        }
+
+        button {
+            height: 28px;
+            padding: 5px 10px;
+            float: right;
+            margin-left: 1rem;
+            box-sizing: border-box;
+        }
+
+        .txtWrap {
+            float: right;
+            text-align: center;
+            margin: 2% 0;
+            width: 34%;
+            padding: 0 2%;
+            overflow: hidden;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>二进制转其他进制</h2>
+    <div class="txtWrap">
+        <input type="text" class="numInp" value="123" placeholder="123">
+        <button class="btn">转换</button>
+    </div>
+    <table class="tbl" width="100%" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>进制</th>
+                <th>结果</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $inp = $('.numInp');
+            $btn = $('.btn');
+            $btn.click(function () {
+                $num = $inp.val();
+                $('tr:nth-child(1) td:last-child').text(parseFloat($num).toString(2));
+                $('tr:nth-child(2) td:last-child').text(parseFloat($num).toString(8));
+                $('tr:nth-child(3) td:last-child').text(parseFloat($num).toString(10));
+                $('tr:nth-child(4) td:last-child').text(parseFloat($num).toString(16));
+                $('tr:nth-child(5) td:last-child').text(parseFloat($num).toString(32));
+                console.log("num:" + $num);
+            });
+        })
+    </script>
+</body>
+
+</html>

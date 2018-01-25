@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        .uaInp,.brInp,.brvInp{
+            color:chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <span>当前浏览器UA: </span><span type="text" class="uaInp"></span><br>
+    <span>当前浏览器Name: </span><span type="text" class="brInp"></span><br>
+    <span>当前浏览器Version: </span><span type="text" class="brvInp"></span>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        var ua=navigator.userAgent;
+        var br=navigator.appName;
+        var brv=navigator.appVersion;
+        console.log("navigator.appVersion: "+brv);
+        
+        // 判断是否是微信内置浏览器
+        var isWeixin =  !!/MicroMessenger/i.test(ua);
+        console.log(isWeixin);
+
+        $(function () {
+            $('.uaInp').text(ua);
+            $('.brInp').text(br);
+            $('.brvInp').text(parseFloat(brv));
+        })
+    </script>
+</body>
+
+</html>

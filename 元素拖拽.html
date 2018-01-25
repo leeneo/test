@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title> new document </title>
+	<meta name="generator" content="editplus" />
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<style type="text/css">
+		.list li {
+			width: 150px;
+			height: 40px;
+			border: 1px solid #999;
+			list-style: none;
+			text-align: center;
+			line-height: 40px;
+			float: left;
+			clear: both;
+			position: absolute;
+		}
+
+		.list li:first-child {
+			top: 40px;
+		}
+
+		.list li:last-child {
+			top: 200px;
+		}
+
+		.list li:nth-child(3) {
+			top: 80px;
+		}
+
+		.list li:nth-child(4) {
+			top: 120px;
+		}
+
+		.list li:nth-child(5) {
+			top: 160px;
+		}
+
+
+		.list {
+			margin: 0 auto;
+			width: 200px;
+			position: relative;
+		}
+
+		select {
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body>
+	<ul class="list">
+		<li>LIST1</li>
+		<li>LIST2</li>
+		<li>LIST3</li>
+		<li>LIST4</li>
+		<li>LIST5</li>
+	</ul>
+	<select>
+		<option value="volvo">Volvo</option>
+		<option value="saab">Saab</option>
+		<option value="opel">Opel</option>
+		<option value="audi">Audi</option>
+	</select>
+
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			var flag = false;
+			$lis = $('.list li');
+
+			/*$lis.each(function(){
+					$(this).mousedown(function(){
+						flag=true;
+						console.log(flag);
+						if(flag){
+							$(this).offset().top=100;
+							console.log($(this).offset().top);
+						}
+					});
+					$(this).mouseup(function(){
+						flag=false;
+						console.log(flag);
+					});
+			});*/
+
+			$lis.on('mousedown', function (ev) {
+				var disx = ev.clientX - $(this).offset().left;
+				var disy = ev.clientY - $(this).offset().top;
+
+				console.log(ev);
+				console.log("offset().left"+$(this).offset().left);
+				console.log("offset().top:"+$(this).offset().top);
+
+				$(document).on('mousemove', function (ev) {
+
+					var l = ev.clientX - disx;
+					var t = ev.clientY - disy;
+
+					$(this).css({
+						'left': l,
+						'top': t
+					});
+
+				});
+
+				$(document).on('mouseup', function () {
+					$(this).off('mousemove mouseup');
+				});
+			});
+
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/init.css">
+    
+</head>
+
+<body>
+    <script>
+        var day = new Date();
+        var dv="<div id='dateDv' class='NhrCenter NvrCenter'>";        
+        var dateShow=document.createElement('span');
+        var dateText=document.createTextNode(day.toLocaleDateString());
+        dateShow.appendChild(dateText);
+        document.write(dv+"JS Date 对象方法"+"<br/></div>");
+        var dvObj=document.getElementById('dateDv');
+        dvObj.appendChild(dateShow);
+    </script>
+</body>
+
+</html>

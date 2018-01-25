@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../neoui/css/neoui.css" rel="stylesheet" />
+    <link href="../neoui/css/utils.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        body {
+            background: rgba(109, 139, 199, 0.6);
+            text-align: center;
+        }
+
+        .mainTit {
+            font-size: 4rem;
+            margin: 10rem 0 5rem;
+        }
+
+        .linkWrap {
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .a {
+            font-size: 2.6rem;
+            padding: 1.4rem 2.2rem;
+            display: inline-block;
+            color: #fff;
+        }
+
+        .neo-lgBtn {
+            padding: 1rem 2.4rem;
+            font-size: 2.6rem;
+            line-height: 5.333333333333333rem;
+            cursor: pointer;
+        }
+
+            .neo-lgBtn:first-child {
+                background: rgba(188, 207, 1, 0.9);
+                float: left;
+            }
+
+            .neo-lgBtn:last-child {
+                background: cadetblue;
+                float: right;
+            }
+
+        .imgWrap {
+            margin-top: 12vh;
+        }
+
+            .imgWrap img {
+                height: 25vh;
+            }
+
+        .bgAd {
+            width: 5.333333333333333rem;
+            height: 5.333333333333333rem;
+            float: left;
+            background: url(./images/appload/android.png) no-repeat center;
+        }
+
+        .bgIs {
+            width: 5.333333333333333rem;
+            height: 5.333333333333333rem;
+            float: left;
+            background: url(./images/appload/ios.png) no-repeat center;
+        }
+
+        /*模态框*/
+        .neo-modal .conWrap {
+            padding-left: 28%;
+            color: #fff;
+            font-size: 2.8rem;
+            line-height: 80px;
+        }
+
+            .neo-modal .conWrap p {
+                text-align: left;
+            }
+
+            .neo-modal .conWrap i {
+                background: #FF9800;
+                border-radius: 100%;
+                width: 60px;
+                height: 60px;
+                display: inline-block;
+                text-align: center;
+                line-height: 60px;
+                font-style: normal;
+            }
+
+        .neo-modal .modal-ImgWrap {
+            text-align: right;
+        }
+
+        .neo-modal .modal-ImgWrap img {
+            height: 240px;
+        }
+
+        .modalBtn {
+            padding: 0.6rem 3.6rem;
+            margin-top: 10%;
+            background: rgba(255, 255, 255, 0);
+            border: 5px dotted rgba(198, 229, 244, 0.5490196078431373);
+            color: #fff;
+            font-size: 3rem;
+            line-height: 4rem;
+        }
+        .neo-modal .conWrap ul li{
+            float:left;
+            width:1px;
+            height:1px;
+        }
+        .openMenu {
+            font-size: 2.2rem;
+        }
+        .dropMenu {
+            width: 60px;
+        }
+        .dropMenu b{
+            text-align: center;
+            height: 40px;
+            border-left: 8px dotted #fff;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imgWrap">
+        <img src="./images/appload/cclogo.png" />
+    </div>
+    <h2 class="mainTit">
+        策城软件
+        <a href="###"></a>
+    </h2>
+    <div class="linkWrap">
+        <a class="neo-lgBtn neo-btn-shadow neo-btn-halfCircle" href="./cc-release.apk" id="adLink">
+            <i class="bgAd"></i>
+            下载 Andorid版
+        </a>
+        <a class="neo-lgBtn neo-btn-shadow neo-btn-halfCircle" href="https://itunes.apple.com/cn/app/%E7%AD%96%E5%9F%8E%E8%BD%AF%E4%BB%B6/id1230287486?mt=8">
+            <i class="bgIs"></i>
+            下载 iPhone版
+        </a>
+    </div>
+    <!-- 模态框 -->
+    <div class="neo-modal">
+        <div class="modal-ImgWrap">
+            <img src="./images/appload/11-2.png" alt="">
+        </div>
+        <div class="conWrap">
+            <p>
+                <i>1</i> 点击右上角的&nbsp;<span class="dropMenu neo-menuShadow"><b></b></span>
+            </p>
+            <p>
+                <i>2</i> 选择&nbsp;<span class="openMenu neo-menuShadow">在浏览器中打开</span>
+            </p>
+        </div>
+        <button class="modalBtn neo-btn-halfCircle" id="btnSure">我知道了</button>
+    </div>
+    <div class="neo-bgModal "></div>
+    <script src="../neoui/js/flexible.js"></script>    
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>    
+    <script type="text/javascript">
+        $(function () {
+            var ua = navigator.userAgent;
+            var isWeiXin = !!/MicroMessenger/i.test(ua);
+            $btnAndr = $('#adLink');
+            $btnAndr.click(function (e) {
+                if (true) {
+                    $('.neo-modal').fadeIn(500);
+                    $('.neo-bgModal').fadeIn(500);
+                    return false;
+                }
+            })
+
+            $('#btnSure').click(function () {
+                $('.neo-modal').fadeOut(500);
+                $('.neo-bgModal').fadeOut(500);
+            })
+        })
+
+    </script>
+</body>
+
+</html>
