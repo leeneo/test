@@ -10,7 +10,7 @@
 
 <body>
     <!--label for id  用于绑定特定id的input元素以实现点击label也能实现input选中效果（单选，复选）-->
-    <input type="radio" name='InpN' id='InpD'>
+    <input type="radio" name='InpN' id='InpD' >
     <label for="InpD">标签1</label>
     <br>
 
@@ -27,6 +27,12 @@
         <input type="checkbox" name='InpN3' id='InpD4'>
     </label>
     <br>
+    <script>
+        var inp=document.getElementById('InpD');
+        console.log(inp);
+        inp.setAttribute('checked',true);
+        console.log(inp.getAttribute('checked'));
+    </script>
 </body>
 
 </html>
