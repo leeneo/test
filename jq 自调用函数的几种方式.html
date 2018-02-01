@@ -1,17 +1,55 @@
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-<script type="text/javascript">
-	$(function () {
-		function fc() {
-			alert(1);
-		}
-		fc();
+<!DOCTYPE html>
+<html lang="en">
 
-		$(function noname() {
-			alert(2);
-		})
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../neoui/css/neoui.css">
+	<title>Document</title>
+</head>
 
+<body>
+	<input type="text" placeholder="sometext" id="showInp">
+	<button class="neo-btn" value="login" id="logBtn">按钮</button>
+	<button class="neo-btn" value="pwd" id="pwdBtn">按钮</button>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="../neoui/js/flexible.js"></script>
+	<script type="text/javascript">
 		$(function () {
-			alert(3);
+			function fc() {
+				console.log(1);
+			}
+			fc();
+
+			$(function noname() {
+				console.log(2);
+			})
+
+			$(function () {
+				console.log(3);
+			})
+			$logBtn=$('#logBtn');
+			$logBtn.click(function(){
+				console.log("jq自执行事件：我被默认点击了");
+				$inp.val("value of button:"+$logBtn.val());
+			});
+			$inp=$('input[type=text]');
+			window.onload = $logBtn.click();
 		})
-	})
-</script>
+
+		pwdBtn=document.getElementById("pwdBtn")
+		showInp=document.getElementById('showInp')
+		console.log("showInp:"+showInp.placeholder)
+		console.log("pwdBtn:"+pwdBtn.value)
+		
+		function pwdtBtnClickFn(){
+			console.log("js自执行事件：我被默认点击了");
+			showInp.value="value of button:"+pwdBtn.value;
+		}
+		pwdBtn.onclick=pwdtBtnClickFn
+		window.onload=pwdBtn.onclick();
+	</script>
+</body>
+
+</html>
