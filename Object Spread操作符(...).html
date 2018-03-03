@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- ... 这个省略号是ES7中规定的Object Spread操作符，作用类似于取数组中的所有值 -->
+    <script>
+        let arr = [1, 2, 3];
+        let arr2 = [...arr];
+        arr2.push(4);
+        // arr2 变成了 [1,2,3,4]
+        // arr 保存原来的样子
+        console.log("r1:"+arr+"\nr2:"+arr2);
+
+        let arr3 = [0, 1, 2];
+        let arr4 = [3, 4, 5];
+        arr3.push(...arr4);
+        // arr3变成了[0, 1, 2, 3, 4, 5]
+        console.log("r3:"+arr3+"\nr4:"+arr4);
+
+        let arr5 = [0, 1, 2];
+        let arr6 = [-1, ...arr5, 3];
+        // arr6 变成了[-1, 0, 1, 2, 3]
+        console.log("r5:"+arr5+"\nr6:"+arr6);
+    </script>
+</body>
+
+</html>
