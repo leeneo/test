@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+</head>
+
+<body>
+    <!-- 测试需要在iis中搭建测试环境，iis开启目录浏览功能，配置mime类型为json:application/json -->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: './js/test.json',
+            type: 'get',
+            //data:jsondata,
+            async: true,
+            success: function (e) {
+                console.log(e[0].name+" 长大了："+(e[0].age + 10))
+            },
+            error: function () {
+                alert('出错了。');
+            }
+        });
+
+        // 用法：getJSON(url,data,fn)
+        $.getJSON('./js/test.json', function (data) {
+            $.each(data, function (e) {
+                console.log(data[e].name + ":" + data[e].age)
+            })
+        })
+    </script>
+</body>
+
+</html>
+<!-- 脚本
+
+    var name = "小天";
+    var age = 24;
+    var datas = {
+        name,
+        age
+    };
+    
+// $.ajax({
+    // 	url: 'AjaxJson',
+    // 	type: 'post',
+    // 	data: datas,//这里JSON.stringify(datas)；后台获取的数据会是空的？？
+    // 	success: function (e) {
+    // 		alert(e);
+    // 	},
+    // 	error: function () {
+    // 		alert('出错了。');
+    // 	}
+    // }); -->
+
+<!--server 端
+	//server端 return 返回的值就是前端ajax 回调函数的参数。
+        public string AjaxJson()
+        {
+            string cN = Request["name"];
+            string cA = Request["age"];
+            //string res = Json(new { success = true, msg = "test!" }).ToString();
+            return "这是服务器返回的" + "名字：" + Server.UrlDecode(cN )+";年龄：" + Server.UrlDecode(cA);
+        }
+
+-->
