@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        li{
-            width:100px;
+        li {
+            width: 100px;
         }
     </style>
 </head>
+
 <body>
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-    </ul>
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <!-- <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> -->
+    <script src="./js/savefile.js"></script>
     <script>
-        $(function(){
-            $lis=$('ul li');
-            $lis.each(function(){
-                $(this).css('background-color','#fab');
+        /**
+         * 下载文件
+         */
+        var downloadTextFile = function (mobileCode) {
+            if (isEmpty(mobileCode)) {
+                mobileCode = '';
+            }
+
+            var file = new File([mobileCode], "手机号.txt", {
+                type: "text/plain;charset=utf-8"
             });
-            //$lis.css('background-color','#fab');
-        })
+            saveAs(file);
+        }
+        // downloadTextFile()
     </script>
 </body>
+
 </html>
