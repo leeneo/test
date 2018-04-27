@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    </pre>
+    <script>
+        // json
+        // js 中的定义一切都是对象，变量，数组，函数。
+
+
+        var jsn = { "text": "sxwewre", "age": 17 }
+        console.log("js声明的json对象，jsn:")
+        console.log(jsn)
+        //alert(jsn.age)    //17
+        console.log("是一个" + typeof (jsn) + ";")
+        var str = JSON.stringify(jsn)
+        console.log("stringify拆箱的json 字符串,str:")
+        console.log(str)
+        //alert(str.text) //undefined,只有object类型时才能访问其内部元素
+        var obj = JSON.parse(str)
+        console.log("parse封装的str是一个" + typeof (obj) + "obj:")
+        console.log(obj)
+        
+        //demo 2
+        console.log("\n")
+        var a = 123
+        var b = "编程"
+        var c = [4, 5, 6];
+        var objt = { a, b, c }              //定义json 对象
+        var jsonStr=JSON.stringify(objt)    //从object拆箱成字符串
+        // for(var i=0;i<jsonStr.length;i++){
+        //     console.log(jsonStr[i])
+        // }
+        console.log(jsonStr);               //输出：{"a":123,"b":"编程","c":[4,5,6]}
+        
+        var jsnObj=JSON.parse(jsonStr)      //封装字符串为Object
+        console.log(jsnObj)                 //输出：{a: 123, b: "编程", c: Array(3)}
+
+    </script>
+</body>
+
+</html>

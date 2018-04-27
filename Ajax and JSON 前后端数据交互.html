@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <!-- ²âÊÔÐèÒªÔÚiisÖÐ´î½¨²âÊÔ»·¾³£¬iis¿ªÆôÄ¿Â¼ä¯ÀÀ¹¦ÄÜ£¬ÅäÖÃmimeÀàÐÍÎªjson:application/json -->
+    <!-- æµ‹è¯•éœ€è¦åœ¨iisä¸­æ­å»ºæµ‹è¯•çŽ¯å¢ƒï¼Œiiså¼€å¯ç›®å½•æµè§ˆåŠŸèƒ½ï¼Œé…ç½®mimeç±»åž‹ä¸ºjson:application/json -->
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script type="text/javascript">
         $.ajax({
@@ -19,14 +19,14 @@
             //data:jsondata,
             async: true,
             success: function (e) {
-                console.log(e[0].name+" ³¤´óÁË£º"+(e[0].age + 10))
+                console.log(e[0].name+" é•¿å¤§äº†ï¼š"+(e[0].age + 10))
             },
             error: function () {
-                alert('³ö´íÁË¡£');
+                alert('å‡ºé”™äº†ã€‚');
             }
         });
 
-        // ÓÃ·¨£ºgetJSON(url,data,fn)
+        // ç”¨æ³•ï¼šgetJSON(url,data,fn)
         $.getJSON('./js/test.json', function (data) {
             $.each(data, function (e) {
                 console.log(data[e].name + ":" + data[e].age)
@@ -36,9 +36,9 @@
 </body>
 
 </html>
-<!-- ½Å±¾
+<!-- è„šæœ¬
 
-    var name = "Ð¡Ìì";
+    var name = "å°å¤©";
     var age = 24;
     var datas = {
         name,
@@ -48,23 +48,23 @@
 // $.ajax({
     // 	url: 'AjaxJson',
     // 	type: 'post',
-    // 	data: datas,//ÕâÀïJSON.stringify(datas)£»ºóÌ¨»ñÈ¡µÄÊý¾Ý»áÊÇ¿ÕµÄ£¿£¿
+    // 	data: datas,//è¿™é‡ŒJSON.stringify(datas)ï¼›åŽå°èŽ·å–çš„æ•°æ®ä¼šæ˜¯ç©ºçš„ï¼Ÿï¼Ÿ
     // 	success: function (e) {
     // 		alert(e);
     // 	},
     // 	error: function () {
-    // 		alert('³ö´íÁË¡£');
+    // 		alert('å‡ºé”™äº†ã€‚');
     // 	}
     // }); -->
 
-<!--server ¶Ë
-	//server¶Ë return ·µ»ØµÄÖµ¾ÍÊÇÇ°¶Ëajax »Øµ÷º¯ÊýµÄ²ÎÊý¡£
+<!--server ç«¯
+	//serverç«¯ return è¿”å›žçš„å€¼å°±æ˜¯å‰ç«¯ajax å›žè°ƒå‡½æ•°çš„å‚æ•°ã€‚
         public string AjaxJson()
         {
             string cN = Request["name"];
             string cA = Request["age"];
             //string res = Json(new { success = true, msg = "test!" }).ToString();
-            return "ÕâÊÇ·þÎñÆ÷·µ»ØµÄ" + "Ãû×Ö£º" + Server.UrlDecode(cN )+";ÄêÁä£º" + Server.UrlDecode(cA);
+            return "è¿™æ˜¯æœåŠ¡å™¨è¿”å›žçš„" + "åå­—ï¼š" + Server.UrlDecode(cN )+";å¹´é¾„ï¼š" + Server.UrlDecode(cA);
         }
 
 -->
