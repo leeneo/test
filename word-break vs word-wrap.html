@@ -39,6 +39,7 @@
         }
 
         /*非块级元素，需要添加display:inline-block*/
+
         span.test4 {
             width: 11em;
             border: 1px solid #000000;
@@ -49,6 +50,17 @@
             overflow: hidden;
             display: inline-block;
         }
+        /*带有hover效果的溢出文本展示*/
+        p.test3:hover,span.test4:hover{
+            width: 100%;
+            border: 1px solid #000000;
+            /* text-overflow: clip; */
+            /* white-space: nowrap; */
+            overflow: visible;
+            color: blue;
+            /* display: inline-block; */
+        }
+
     </style>
 </head>
 
