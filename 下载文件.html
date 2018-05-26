@@ -21,7 +21,7 @@
          * 下载文件
          */
         var downloadTextFile = function (mobileCode) {
-            if (isEmpty(mobileCode)) {
+            if (!mobileCode) {
                 mobileCode = '';
             }
 
@@ -30,7 +30,8 @@
             });
             saveAs(file);
         }
-        // downloadTextFile()
+        // var mobileCode=
+        downloadTextFile('17376852911');
     </script>
 </body>
 

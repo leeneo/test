@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../neoui/css/neoui.css">
+    <link rel="stylesheet" href="../neoui/css/utils.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    到店日期：<input id="arrDate" class="am-form-field" type="date" min=''/>
+    离店日期：<input type="date" name="" id="leavDate" style="background-color:#fba"/>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        var leavDate = document.getElementById('leavDate');
+        var arrDate = document.getElementById('arrDate');
+        var $arrDate = $(arrDate);
+        var $leavDate = $(leavDate);
+        var today=new Date();
+        arrDate.valueAsDate = today;
+        today.setDate(today.getDate()+1)    //1527479137436
+        leavDate.valueAsDate = today;
+        //var date=$arrDate.val();	//正常，可以获取到时间（2017-12-12）
+        var date = arrDate.valueAsDate.toLocaleDateString();	//正常，可以获取到时间(2017/12/12)
+        //var date=arrDate.getAttribute('value');	//错误，获取不到时间
+        console.log(date);
+
+        $arrDate.attr('min',$arrDate.val())
+        $leavDate.click(function(){
+            $(this).attr('min', $arrDate.val());
+        })
+    </script>
+</body>
+
+</html>
