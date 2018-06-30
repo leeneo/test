@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> 跨域访问 </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../neoui/css/neoui.css">
+    <link rel="stylesheet" href="../neoui/css/utils.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--控制器代码（C#）-->
+    <!--
+        //Web.config 设置节点    <appSettings><add key="Access-Control-Allow-Origin" value="http://localhost:3376"/></appSettings>
+        //value 为发起ajax请求的url
+        public class ReportController : Controller
+        {
+
+            private void SetHeader()
+            {
+                var crossValue = ConfigurationManager.AppSettings["Access-Control-Allow-Origin"];
+                Response.AddHeader("Access-Control-Allow-Origin", crossValue);
+            }
+
+            public string Billa1Report(string id)
+            {
+                SetHeader();
+                var res = db.billa1.FirstOrDefault(x => x.s_account_no == id);
+                if (res != null)
+                    return RetMsg.Success(res);
+                else
+                    return RetMsg.Failed();
+            }
+        }
+
+    -->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            var postUrl = 'http://localhost:3376/report/Billa1Report'
+            var postData = $txtInp.val()
+
+            $.ajax({
+                url: postUrl,
+                data: { id: postData },
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    //console.log(result);
+                    //根据数据显示内容到页面上
+                    if (data.success) {
+                        data = data.data;
+                        //console.log(data)
+
+                        //var tr = $("<tr></tr>");
+                        //$("<td>" + data.s_account_no + "</td>").appendTo(tr);
+                        //$("<td>" + data.s_manue + "</td>").appendTo(tr);
+                        //$("<td>" + data.n_charge + "</td>").appendTo(tr);
+                        //$("<td>" + data.n_pay + "</td>").appendTo(tr);
+                        //$("<td>" + data.d_end_time + "</td>").appendTo(tr);
+                        //tr.appendTo($('#box'));
+
+                        var html = "<tr><td>"
+                            + data.s_account_no + "</td><td>"
+                            + data.s_manue + "</td><td>"
+                            + data.n_charge + "</td><td>"
+                            + data.n_pay + "</td><td>"
+                            + data.d_end_time + "</td><td>"
+                            + "</td></tr>";
+                        $('#box').append(html);
+                    }
+                    else { console.log(2) }
+                }
+                ,
+                error: function () {
+                    alert("获取失败")
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
