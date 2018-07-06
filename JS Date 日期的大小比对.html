@@ -29,15 +29,15 @@
 
 <body>
     <script type="text/javascript">
-        var comparedDate = new Date()
-        
-        //必需传一个new Date() 类型的参数
-        function compareToday(comparedDate) {
-            var today = new Date(new Date().toLocaleDateString())
-            console.log("comparedDate:" + comparedDate)
-            return comparedDate > today
+        var nowDate = new Date('2018-07-06').getDate()
+
+        function compareToday(nowDate) {
+            var today = new Date().getDate()
+            console.log("nowDate:" + nowDate)
+            console.log("today:" + today)
+            return nowDate >= today
         }
-        console.log(compareToday(comparedDate))
+        console.log(compareToday(nowDate))
     </script>
 </body>
 
