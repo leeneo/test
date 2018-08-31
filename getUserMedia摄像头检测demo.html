@@ -18,12 +18,12 @@
 
     if (navigator.getUserMedia) {
         navigator.getUserMedia({
-                audio: true,
-                video: {
-                    width: 1280,
-                    height: 720
-                }
-            },
+            audio: true,
+            video: {
+                width: 1280,
+                height: 720
+            }
+        },
             function (stream) {
                 var video = document.querySelector('video');
                 video.srcObject = stream;
@@ -32,11 +32,11 @@
                 };
             },
             function (err) {
-                console.log("The following error occurred: " + err.name);
+                alert("The following error occurred: " + err.name + ',' + err.message);
             }
         );
     } else {
-        console.log("getUserMedia not supported");
+        alert("getUserMedia not supported");
     }
 </script>
 

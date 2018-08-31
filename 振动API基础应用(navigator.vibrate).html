@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html style="font-size:26px">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        button {
+            font-size: 1rem;
+            padding: 10px 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shake to Undo</h1>
+    <h2>for your mobile web app</h2>
+    <p>Shake your iPhone/iPad to see a custom action.</p>
+    <p>Works on iOS +4.2.1, Android 4.0.3 (default browser), Opera Mobile (Android), BlackBerry PlayBook 2.0</p>
+    <button onclick="startShake(20000)">震动</button>
+    <button onclick="stopShake()">停止</button>
+
+    <script>
+        function startShake(duration) {
+            navigator.vibrate(duration);
+        }
+        function stopShake() {
+            stopVibrate()
+        }
+        if (!localStorage.Flag || localStorage.Flag < 0) {
+            localStorage.Flag = 1
+            location.reload()
+        }
+
+
+        var supportsVibrate = "vibrate" in navigator;
+        console.log(supportsVibrate);
+        if (supportsVibrate) {
+            //navigator.vibrate(1000);    //震动1秒
+            //navigator.vibrate([3000, 2000, 1000]);//震动3秒，停2秒，再震动1秒
+
+            //停止震动
+            //navigator.vibrate(0);
+            //navigator.vibrate([]);
+
+            var vibrateInterval;
+            // Starts vibration at passed in level
+            function startVibrate(duration) {
+                navigator.vibrate(duration);
+            }
+            // Stops vibration
+            function stopVibrate() {
+                // Clear interval and stop persistent vibrating
+                if (vibrateInterval) clearInterval(vibrateInterval);
+                navigator.vibrate(0);
+            }
+            // Start persistent vibration at given duration and interval
+            // Assumes a number value is given
+            function startPeristentVibrate(duration, interval) {
+                vibrateInterval = setInterval(function () {
+                    startVibrate(duration);
+                }, interval);
+            }
+            startPeristentVibrate(1000, 2000)
+        }
+    </script>
+</body>
+</html>
