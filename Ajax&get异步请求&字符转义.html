@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Plugins/neoui/css/neoui.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <input type="text" id="vcName" placeholder="请输入vcName" value="策城" />
+        <input type="text" id="expireDateStr" placeholder="请输入expireDateStr" value="qjMlR2yN+5TCnAoXXXrwvA==" /> &nbsp; <button type="submit" id="subtn" class="neo-btn neo-btn-shadow">生成</button><br />
+        <input type="text" id="showDate" placeholder="此处显示结果" />
+    </div>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        /*后台控制器代码*/
+        /*
+        public class TestController : Controller
+        {
+            public JsonResult GetJsonDate()
+            {
+                string vcName = Request["vcName"];
+                string expire = Request["expire"];
+                //if (string.IsNullOrWhiteSpace(vcName))
+                //    vcName = "策城";
+                //if (string.IsNullOrWhiteSpace(expire))
+                //    expire = "qjMlR2yN+5TCnAoXXXrwvA==";
+                string dateStr = Common.Encryption.AESDecrypt(expire, vcName);     //日期密钥
+                DateTime decDate = DateTime.Parse(dateStr);
+                return Json(new { success = true, data = decDate.ToString() });
+            }
+            public string GetDateStr(string vcName, string expire)
+            {
+                //if (string.IsNullOrWhiteSpace(vcName))
+                //    vcName = "策城";
+                //if (string.IsNullOrWhiteSpace(expire))
+                //    expire = "qjMlR2yN+5TCnAoXXXrwvA==";
+                string dateStr = Common.Encryption.AESDecrypt(expire, vcName);     //日期密钥
+                DateTime decDate = DateTime.Parse(dateStr);
+                return decDate.ToString();
+            }
+        }
+        */
+        $(function () {
+            $('#subtn').click(function () {
+                var vcName = $("#vcName").val()
+                var expireDateStr = $("#expireDateStr").val()
+                if (!vcName || !expireDateStr) {
+                    alert("不能为空")
+                    return
+                }
+                /*post请求方式，参数无需转义*/
+                //$.ajax({
+                //    url: "/Test/GetJsonDate",
+                //    data: { "vcName": vcName, "expire": expireDateStr },
+                //    type: "post",
+                //    dataType: "json",
+                //    success: function (res) {
+                //        console.log("PostRes:" + JSON.stringify(res))
+                //        if (res.success)
+                //            $('#showDate').val(res.data)
+                //    },
+                //    error: function (res) {
+                //        console.log('oh it`s occured a wrong with the page!' + "res:" + JSON.stringify(res))
+                //    },
+                //    complete: function (res) {
+                //        console.log("ResponseRes:" + JSON.stringify(res))
+                //    }
+                //})
+
+                /*get请求方式需要对有特殊字符(例如：'+'，传到后台会被替换为空格)的参数进行转义*/
+                var HtmlUtil = {
+                    /*用正则表达式实现html转码*/
+                    htmlEncodeByRegExp: function (str) {
+                        var s = "";
+                        if (str.length == 0)
+                            return "";
+                        s = str.replace(/\+/g, '%2B');
+                        s = s.replace(/\=/g, '%3D');
+                        return s;
+                    }
+                }
+                expireDateStr = HtmlUtil.htmlEncodeByRegExp(expireDateStr);
+
+                $.get("/Test/GetDateStr?vcName=" + vcName + "&expire=" + expireDateStr, function (res) {
+                    console.log("GetRes:" + res)
+                    $('#showDate').val(res)
+                })
+            })
+        })
+    </script>
+</body>
+</html>
