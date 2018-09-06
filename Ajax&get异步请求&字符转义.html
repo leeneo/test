@@ -81,7 +81,9 @@
                         return s;
                     }
                 }
-                expireDateStr = HtmlUtil.htmlEncodeByRegExp(expireDateStr);
+                expireDateStr = encodeURIComponent(expireDateStr);
+                //expireDateStr = HtmlUtil.htmlEncodeByRegExp(expireDateStr);   //效果同encodeURIComponent()
+                //expireDateStr = encodeURI(expireDateStr); //仅能转义空格和中文字符
 
                 $.get("/Test/GetDateStr?vcName=" + vcName + "&expire=" + expireDateStr, function (res) {
                     console.log("GetRes:" + res)
