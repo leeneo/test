@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        index
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            //Ajax跨域访问
+            //注意事项，使用jsonp模式可以无视Access-Control-Allow-Origin控制
+            
+            // API设置响应头模式 后端代码
+            // private void SetHeader()
+            // {
+            //     var crossValue = ConfigurationManager.AppSettings["ArcossOriginUrl"];
+            //     Response.AddHeader("Access-Control-Allow-Origin", crossValue);
+            // }
+            // public string Get()
+            // {
+            //     SetHeader();
+            //     parametre para = db.parametre.FirstOrDefault();
+            //     return RetMsg.Success(para);
+            // }
+            function normalAjax() {
+                $.ajax({
+                    url: "http://localhost:3376/parametre/get",
+                    type: 'get',
+                    // data:{id:'id001'},
+                    dataType: 'json',
+                    success: function (res) {
+                        document.write("normalAjax  请求成功:"+JSON.stringify(res));
+                    },
+                    error: function (e) {
+                        console.log("normalAjax 请求错误:"+JSON.stringify(e))
+                    },
+                    complete: function (e) {
+                        console.log('normalAjax 请求完成：' + JSON.stringify(e))
+                    }
+                })
+            }
+
+            //jsonp 模式后端代码        
+            // public string Get()
+            // {
+            //     string callback = Request["callback"];
+            //     parametre para = db.parametre.FirstOrDefault();
+            //     var res = JsonConvert.SerializeObject(para);
+            //     return callback + '(' + res + ')';
+            // }
+            function jsonpAjax() {
+                $.ajax({
+                    url: "http://localhost:3376/parametre/get",
+                    type: 'get',
+                    //data:{id:'id001'},
+                    dataType: 'jsonp',
+                    jsonpCallback: 'showData',
+                    success: function (res) {
+                        document.write("jsonpAjax  请求成功:" + JSON.stringify(res));
+                    },
+                    error: function (e) {
+                        console.log("jsonpAjax 请求错误:" + JSON.stringify(e))
+                    },
+                    complete: function (e) {
+                        console.log('jsonpAjax 请求完成：' + JSON.stringify(e))
+                    }
+                })
+            }
+
+            normalAjax()
+            jsonpAjax()
+        })
+    </script>
+</body>
+</html>
