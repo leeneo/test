@@ -108,14 +108,14 @@
             //将图像转换为base64数据
             var base64Data = imgData;//.substr(22); //在前端截取22位之后的字符串作为图像数据
             //开始异步上
-            $.post("saveimg.php", { "img": base64Data }, function (result) {
-                printHtml("解析结果：" + result.data);
-                if (result.status == "success" && result.data != "") {
-                    printHtml("解析结果成功！");
-                } else {
-                    startPat();//如果没有解析出来则重新抓拍解析       
-                }
-            }, "json");
+            // $.post("saveimg.php", { "img": base64Data }, function (result) {
+            //     printHtml("解析结果：" + result.data);
+            //     if (result.status == "success" && result.data != "") {
+            //         printHtml("解析结果成功！");
+            //     } else {
+            //         startPat();//如果没有解析出来则重新抓拍解析       
+            //     }
+            // }, "json");
         }
     }      
 </script>
