@@ -21,6 +21,11 @@
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script type="text/javascript">
         $(function () {
+            //Js中起始时间是固定的1970/1/1 上午8:00:00
+            var beginTime = new Date('1970/1/1 8:00:00').getTime()
+            console.log(beginTime) //起始时间的毫秒数为0
+            //所以将一天的毫秒数换算成日期格式就是在1970/1/1 8:00:00的基础上加1天==>1970/1/2 8:00:00
+
             //日期往后推，加法运算
             function dayForward(startDate, num) {
 
@@ -46,8 +51,8 @@
                 return resDay;
             }
             //dayForward('2017-12-31', 32);
-            var x=dayBackward('2017-12-31', 32);
-            console.log("123:"+x);
+            var x = dayBackward('2017-12-31', 32);
+            console.log("123:" + x);
         })
     </script>
 </body>

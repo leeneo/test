@@ -1,0 +1,54 @@
+<!DOCTYPE>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/init.css">
+</head>
+
+<body>
+    <div>
+        过期日期：<span id='time'></span><br>
+        倒计时 1：<span id='showTime'></span><br>
+        倒计时 2：<span id='showTime2'></span>
+    </div>
+
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        //倒计时运算1，未来时间的毫秒数减去当下时间的毫秒数的差值转日期格式
+        //一小时以内的倒计时计算，无需求余运算，注意字符集需保持与浏览器显示一致，否则会替换失败
+        //超过一小时的话需要与起始时间（'1970/1/1 上午8:00:00',毫秒数：0）进行运算，然后再进行相应的替换
+        var banTime = new Date().getTime() + 30 * 60 * 1000 //设置过期时期（未来的某一点，比如30分钟以后(30*60*1000)），不变量
+        console.log(banTime)
+        function setTime() {
+            var nowTime = new Date().getTime() //现在的时间，变量
+            var newDate = new Date(Number(banTime - nowTime)).toLocaleString()
+            $('#showTime').html(newDate.replace('1970/1/1 上午8:', ''))
+        }
+
+        //倒计时运算2，将得来的毫秒数差值经求余转换为指定时间格式
+        function countDate() {
+            var millis = new Date($('#time').text()).getTime() - new Date().getTime()
+            console.log(new Date(millis).toLocaleString())
+            var leavel1 = millis % (24 * 3600 * 1000); //计算天数后剩余的毫秒数
+            var leavel2 = leavel1 % (3600 * 1000); //计算小时数后剩余的毫秒数
+            var leavel3 = leavel2 % (60 * 1000); //计算分钟数后剩余的毫秒数
+            var days=Math.floor(millis / (24 * 3600 * 1000))
+            var hours = Math.floor(leavel1 / (24 * 60 * 1000))
+            var minutes = Math.floor(leavel2 / (60 * 1000));
+            var seconds = Math.round(leavel3 / 1000);
+            $('#showTime2').html(days+'天 '+hours + ':' + minutes + ':' + seconds)
+        }
+
+        $(function () {
+            $('#time').text(new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000))
+            setInterval('setTime()', 1000)
+            setInterval('countDate()', 1000)
+        })
+    </script>
+</body>
+
+</html>
