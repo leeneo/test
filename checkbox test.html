@@ -24,7 +24,8 @@
 <body>
     <div>
         <input type="button" id="ieck" value="选中" />
-        <input type="checkbox" id="check1" />
+        <input type="checkbox" id="check1" /><br>
+        TEST<input id="cbxDal" type="checkbox" title="有数据库" name="dals">
     </div>
 </body>
 
@@ -40,5 +41,17 @@
                 $(this).next().attr('checked', 'checked')
             }
         });
+
+        //获取checkbox的选中状态，以及改变选中状态,js方式要比jq直接的多
+        //jq 方式
+        var cbx=$('#cbxDal')
+        console.log(cbx.is(':checked'))    //获取状态
+        cbx.prop('checked',true)           //设置状态
+        //js 方式
+        // var cbj=document.getElementById('cbxDal')==>cbx[0]
+        var cbj=cbx[0]
+        console.log(cbj.checked)            //获取状态
+        cbj.checked=false                   //设置状态
+        console.log(cbj.checked)
     });
 </script>
