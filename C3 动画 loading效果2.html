@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="Code" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../neoui/css/neoui.css">
+    <link rel="stylesheet" href="../neoui/css/utils.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+       .loading {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 100;
+                background-color: #fff;
+            }
+            .loading .pic {
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+            .loading .pic i {
+                display: block;
+                float: left;
+                width: 6px;
+                height: 50px;
+                background: #399;
+                margin: 0 2px;
+                /*各个竖线的高度缩小到40%的长度*/
+                -webkit-transform: scaleY(0.4);
+                    -ms-transform: scaleY(0.4);
+                        transform: scaleY(0.4);
+                /*调用动画load，动画完成总时间为1.2s，连续做动画*/
+                -webkit-animation: load 1.2s infinite;
+                        animation: load 1.2s infinite;
+            }
+            /*设置每个竖线的延长时间，第一个不用延长时间，第二个依次延长0.1s*/
+            .loading .pic i:nth-child(2){-webkit-animation-delay: 0.1s;animation-delay: 0.1s;}
+            .loading .pic i:nth-child(3){-webkit-animation-delay: 0.2s;animation-delay: 0.2s;}
+            .loading .pic i:nth-child(4){-webkit-animation-delay: 0.3s;animation-delay: 0.3s;}
+            .loading .pic i:nth-child(5){-webkit-animation-delay: 0.4s;animation-delay: 0.4s;}
+            /*定义加载动画load*/
+            @-webkit-keyframes load {
+                0%, 40%, 100% {
+                    -webkit-transform: scaleY(0.4);
+                            transform: scaleY(0.4);
+                }
+                20% {
+                    -webkit-transform: scaleY(1);
+                            transform: scaleY(1);
+                }
+            }
+            @keyframes load {
+                0%, 40%, 100% {
+                    -webkit-transform: scaleY(0.4);
+                            transform: scaleY(0.4);
+                }
+                20% {
+                    -webkit-transform: scaleY(1);
+                            transform: scaleY(1);
+                }
+            }
+    </style>
+</head>
+
+<body>
+    <!-- 遮挡页面 -->
+    <div class="loading">
+        <div class="pic">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js"></script>
+    <script>
+        document.onreadystatechange = function () {
+            if (document.readyState == "complete") {
+                // $(".loading").fadeOut();
+            }
+        }
+    </script>
+</body>
+
+</html>
