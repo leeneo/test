@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title> new document </title>
+    <meta name="generator" content="Code" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../neoui/css/neoui.css">
+    <link rel="stylesheet" href="../neoui/css/utils.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        .starWrap{
+            position: relative;
+            overflow: hidden;
+            height: 50px;
+
+        }
+        .imgDv{
+            width: 71%;
+            height: 50px;
+        }
+        .hollow{
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: url('./images/hollow-star.png') repeat left top;
+            background-size: contain;
+        }
+        .full{
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: url('./images/solid-star.png') repeat left top;
+            background-size: contain;
+            z-index: -1;
+            width:49%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="starWrap">
+        <div class="imgDv hollow"></div>
+        <div class="imgDv full"></div>
+    </div>
+
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>
